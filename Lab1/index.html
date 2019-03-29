@@ -13,6 +13,7 @@
       }
       .container-fluid {
         height: 100%;
+        background-color: blue;
       }
 
       /* Optional: Makes the sample page fill the window. */
@@ -48,14 +49,25 @@
         margin-top: 6px;
       }
 
+      @media {
+        [class*="col"] {
+            margin: 0px;
+            padding:0px;
+        },
+        [class*="row"] {
+            margin: 0px;
+            padding:0px;
+        }
+      }
+
     </style>
   </head>
   <body>
     <div class="row container-fluid">
-      <div class="col-sm-8 12">
+      <div class="col-md-8 12">
         <div id="map"></div>
       </div>
-      <div class="col-sm-4 12">
+      <div class="col-md-4 12">
             <p class="row zoom">
               <button class="zoomButton" onclick="map.setZoom(map.zoom+1)">
                 <i class="fa fa-search-plus fa-lg" aria-hidden="true"></i>
@@ -68,20 +80,20 @@
               <div class="col-12">
                 <div class="row up">
                   <button type="button" onclick="pan('up')">
-                    <i class="fa fa-chevron-up"></i>
+                    <i class="fa fa-chevron-up fa-lg"></i>
                   </button>
                 </div>
                 <div class="row leftRight">
                   <button class="button" onclick="pan('left')">
-                    <i class="fa fa-chevron-left"></i></button>
+                    <i class="fa fa-chevron-left fa-lg"></i></button>
                     <i class="fas fa-arrows-alt fa-lg arrows"></i>
                   <button class="button" onclick="pan('right')">
-                    <i class="fa fa-chevron-right"></i>
+                    <i class="fa fa-chevron-right fa-lg"></i>
                   </button>
                 </div>
                 <div class="row down">
                   <button class="button" onclick="pan('down')">
-                    <i class="fa fa-chevron-down"></i>
+                    <i class="fa fa-chevron-down fa-lg"></i>
                   </button>
                 </div>
               </div>
