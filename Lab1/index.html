@@ -108,6 +108,7 @@
   </head>
   <body>
     <div class="row container-fluid">
+      <button id="btnAdd">TEST</button>
       <button class="startup" onclick="this.style.display='none'">
         <div class="welcome">maps.
         </div>
@@ -156,6 +157,7 @@
     </div>
 
     <script>
+      let btnAdd = document.getElementById('btnAdd')
       window.addEventListener('beforeinstallprompt', (e) => {
         // Prevent Chrome 67 and earlier from automatically showing the prompt
         e.preventDefault();
