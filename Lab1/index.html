@@ -33,6 +33,10 @@
         padding: 0;
       }
 
+      .sidePanel {
+        background-color: #ffcc99;
+      }
+      
       .up {
         justify-content: center;
         height: 70px;
@@ -158,13 +162,13 @@
             </div>
           </div>
           <div class="col-4 col-md-8 personalMarker">
-              <input type="button" class="button" value="Jespers&#x00A;special place" onclick="centerOnLocation(47.910602, 106.906310)"></input>
+              <input type="button" class="button" value="Jespers &#x00A;special place" onclick="centerOnLocation(47.910602, 106.906310)"></input>
           </div>
           <div class="col-4 col-md-8 personalMarker">
-              <input type="button" class="button" value="Johannes&#x00A;hideout" onclick="centerOnLocation(57.738745, 18.405854)"></input>
+              <input type="button" class="button" value="Johannes &#x00A;hideout" onclick="centerOnLocation(57.738745, 18.405854)"></input>
           </div>
           <div class="col-4 col-md-8 personalMarker">
-              <input type="button" class="button" value="Martins&#x00A;mystery" onclick="centerOnLocation(59.255188, 18.113768)"></input>
+              <input type="button" class="button" value="Martins &#x00A;mystery space" onclick="centerOnLocation(59.255188, 18.113768)"></input>
           </div>
         </div>
 
@@ -184,8 +188,8 @@
 
         infoWindow = new google.maps.InfoWindow;
 
-
-        findLocation()
+        //findLocation()
+        navigator.geolocation
 
         marker = new google.maps.Marker({
           map: map,
@@ -201,7 +205,7 @@
           draggable: false,
           animation: google.maps.Animation.DROP,
           icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+            src: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png"
           },
           position: {lat: 59.3498092, lng: 18.0684358}
         });
@@ -235,6 +239,8 @@
           },
           position: {lat: 57.738745, lng: 18.405854}
         });
+
+
       }
 
       function findLocation() {
