@@ -7,7 +7,7 @@
     <title>Simple Map</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    
     <meta name="mobile-web-app-capable" content="yes">
     <style>
       /* Always set the map height explicitly to define the size of the div
@@ -172,7 +172,7 @@
     </div>
 
     <script>
-      var map, infoWindow;
+      var map;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: /*{lat: 59.3498092, lng: 18.0684358},*/ {lat: 59.331477, lng:18.068738},
@@ -182,30 +182,7 @@
         });
         map.setTilt(45);
 
-        infoWindow = new google.maps.InfoWindow;
-
-        // Try HTML5 geolocation.
-        /*function findLocation() {
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-              var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-              };
-
-              infoWindow.setPosition(pos);
-              infoWindow.setContent('Location found.');
-              infoWindow.open(map);
-              map.setCenter(pos);
-            }, function() {
-              handleLocationError(true, infoWindow, map.getCenter());
-            });
-          }
-          else {
-            // Browser doesn't support Geolocation
-            handleLocationError(false, infoWindow, map.getCenter());
-          }
-        }*/
+        navigator.geolocation.getCurrentPosition(function(position) {});
 
         marker = new google.maps.Marker({
           map: map,
@@ -227,6 +204,7 @@
         });
       }
 
+      infoWindow = new google.maps.InfoWindow;
       function findLocation() {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
