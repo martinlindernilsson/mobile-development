@@ -36,7 +36,7 @@
       .sidePanel {
         background-color: #ffcc99;
       }
-      
+
       .up {
         justify-content: center;
         height: 70px;
@@ -81,7 +81,7 @@
       .startup {
         position: absolute;
         z-index: 5;
-        height: 100%;
+        height: 100vh;
         width: 100%;
         background-color: #ffcc99;
       }
@@ -188,8 +188,7 @@
 
         infoWindow = new google.maps.InfoWindow;
 
-        //findLocation()
-        navigator.geolocation
+        findLocation()
 
         marker = new google.maps.Marker({
           map: map,
