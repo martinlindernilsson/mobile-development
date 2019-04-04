@@ -1,0 +1,14 @@
+{
+  "short_name": "mapsmap",
+  "name": "mapmap",
+  "icons": [
+    {
+      "src": "https://i.ibb.co/4MwK8jh/crazy-jesper.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "landscape"
+}

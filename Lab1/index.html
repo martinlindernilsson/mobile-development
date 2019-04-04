@@ -3,10 +3,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="shortcut icon" type="image/png" href="https://imgshare.io/images/2019/04/04/Network-Globe-Connected-icon.png"/>
+    <link rel="manifest" href="/manifest.json">
     <title>Simple Map</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -212,8 +214,6 @@
         }
 
         map.setCenter({lat:newlat, lng:newlng})
-
-
       }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
