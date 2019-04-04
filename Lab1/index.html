@@ -145,7 +145,7 @@
                 <i class="fa fa-chevron-left fa-4x"></i>
               </button>
               <button type="button" onclick="findLocation()">
-                <i class="fas fa-arrows-alt fa-3x arrows"></i>
+                <i class="button fas fa-arrows-alt fa-3x arrows"></i>
               </button>
               <button class="button" onclick="pan('right')">
                 <i class="fa fa-chevron-right fa-4x"></i>
@@ -158,13 +158,13 @@
             </div>
           </div>
           <div class="col-4 col-md-8 personalMarker">
-              <input type="button" name="button">Jespers special place</input>
+              <input type="button" class="button" name="button">Jespers special place</input>
           </div>
           <div class="col-4 col-md-8 personalMarker">
-              <input type="button" name="button">Johannes hideout</input>
+              <input type="button" class="button" name="button">Johannes hideout</input>
           </div>
           <div class="col-4 col-md-8 personalMarker">
-              <input type="button" name="button">Martins mystic endevours</input>
+              <input type="button" class="button" name="button">Martins mystic endevours</input>
           </div>
         </div>
 
@@ -185,7 +185,7 @@
         infoWindow = new google.maps.InfoWindow;
 
         // Try HTML5 geolocation.
-        function findLocation() {
+        //function findLocation() {
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
               var pos = {
@@ -200,11 +200,12 @@
             }, function() {
               handleLocationError(true, infoWindow, map.getCenter());
             });
-          } else {
+          }
+          else {
             // Browser doesn't support Geolocation
             handleLocationError(false, infoWindow, map.getCenter());
           }
-        }
+        //}
 
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
           infoWindow.setPosition(pos);
