@@ -63,7 +63,7 @@
       }
 
       .personalMarker {
-        justify-content: center;
+        margin-top: 4%;
       }
 
       .arrows {
@@ -158,13 +158,13 @@
             </div>
           </div>
           <div class="col-4 col-md-8 personalMarker">
-              <input type="button" class="button">Jespers special place</input>
+              <input type="button" class="button" value="Jespers special place" onclick="centerOnLocation(47.910602, 106.906310)"></input>
           </div>
           <div class="col-4 col-md-8 personalMarker">
-              <input type="button" class="button">Johannes hideout</input>
+              <input type="button" class="button" value="Johannes hideout" onclick="centerOnLocation(57.738745, 18.405854)"></input>
           </div>
           <div class="col-4 col-md-8 personalMarker">
-              <input type="button" class="button" onclick="centerOnLocation(59.255188, 18.113768)">Martins mystic endevours</input>
+              <input type="button" class="button" value="Martins mystery" onclick="centerOnLocation(59.255188, 18.113768)"></input>
           </div>
         </div>
 
@@ -183,7 +183,7 @@
         map.setTilt(45);
 
         infoWindow = new google.maps.InfoWindow;
-
+        /*
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
@@ -203,6 +203,7 @@
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
+        */
 
         marker = new google.maps.Marker({
           map: map,
@@ -231,6 +232,26 @@
             url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
           },
           position: {lat: 59.255188, lng: 18.113768}
+        });
+
+        jesperMarker = new google.maps.Marker({
+          map: map,
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          position: {lat: 47.910602, lng: 106.906310}
+        });
+
+        johannesMarker = new google.maps.Marker({
+          map: map,
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          position: {lat: 57.738745, lng: 18.405854}
         });
       }
 
