@@ -2,18 +2,26 @@
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/png" href="https://imgshare.io/images/2019/04/04/Network-Globe-Connected-icon.png"/>
     <title>Simple Map</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
         height: 100%;
       }
+      .map {
+        width: 100%;
+        padding: 0;
+      }
       .container-fluid {
         height: 100%;
-        background-color: blue;
+        margin: 0;
+        padding: 0;
+        background-color: #ffcc99;
       }
 
       /* Optional: Makes the sample page fill the window. */
@@ -25,38 +33,73 @@
 
       .up {
         justify-content: center;
-        height: 30px;
+        height: 70px;
       }
 
       .down {
         justify-content: center;
-        height: 30px;
+        height: 70px;
+        margin: 3%;
       }
       .leftRight {
         justify-content: center;
-        height: 30px;
+        height: 70px;
+
       }
       .zoom {
         justify-content: center;
         margin-top: 10px;
+        margin-bottom: 50px;
+      }
+
+      .button {
+        border-radius: 20px;
       }
 
       .zoomButton{
-        height: 40px;
-        border-radius: 20px;
-      }
-      .arrows {
-        margin-top: 6px;
+        height: 80px;
+        margin: 1%;
       }
 
-      @media {
-        [class*="col"] {
-            margin: 0px;
-            padding:0px;
-        },
-        [class*="row"] {
-            margin: 0px;
-            padding:0px;
+      .arrows {
+        margin: 4%;
+      }
+
+      .container-fluid {
+        position: relative;
+      }
+
+      .startup {
+        position: absolute;
+        z-index: 5;
+        height: 100%;
+        width: 100%;
+        background-color: #ffcc99;
+      }
+
+      .welcome {
+        color: white;
+        font-size: 24pt
+      }
+
+      #crazyJesper {
+        border-radius: 50%;
+
+
+        margin: 20px;
+        -webkit-animation: spin 2s infinite linear;
+      }
+
+      @-webkit-keyframes spin {
+          0%  {-webkit-transform: rotate(0deg);}
+          25% {-webkit-transform: rotate(45deg);}
+          75% {-webkit-transform: rotate(-45deg);}
+          100% {-webkit-transform: rotate(0);}
+      }
+
+      @media (max-width: 767px) {
+        #map {
+          height: 60%;
         }
       }
 
@@ -64,41 +107,49 @@
   </head>
   <body>
     <div class="row container-fluid">
-      <div class="col-md-8 12">
+      <button class="startup" onclick="this.style.display='none'">
+        <div class="welcome">maps.
+        </div>
+        <img id="crazyJesper" src="https://i.ibb.co/4MwK8jh/crazy-jesper.png">
+      </button>
+      <div class="col-md-8 12 map">
         <div id="map"></div>
       </div>
-      <div class="col-md-4 12">
-            <p class="row zoom">
-              <button class="zoomButton" onclick="map.setZoom(map.zoom+1)">
-                <i class="fa fa-search-plus fa-lg" aria-hidden="true"></i>
+      <div class="col-md-4 12 sidePanel">
+        <div class="row">
+          <div class="col-6 col-md-12">
+            <div class="row zoom">
+              <button class="button zoomButton col-6" onclick="map.setZoom(map.zoom+1)">
+                <i class="fa fa-search-plus fa-4x"></i>
               </button>
-              <button class="zoomButton" onclick="map.setZoom(map.zoom-1)">
-                <i class="fa fa-search-minus fa-lg" aria-hidden="true"></i>
+              <button class="button zoomButton col-6" onclick="map.setZoom(map.zoom-1)">
+                <i class="fa fa-search-minus fa-4x" aria-hidden="true"></i>
               </button>
-            </p>
-            <p class="row">
-              <div class="col-12">
-                <div class="row up">
-                  <button type="button" onclick="pan('up')">
-                    <i class="fa fa-chevron-up fa-lg"></i>
-                  </button>
-                </div>
-                <div class="row leftRight">
-                  <button class="button" onclick="pan('left')">
-                    <i class="fa fa-chevron-left fa-lg"></i></button>
-                    <i class="fas fa-arrows-alt fa-lg arrows"></i>
-                  <button class="button" onclick="pan('right')">
-                    <i class="fa fa-chevron-right fa-lg"></i>
-                  </button>
-                </div>
-                <div class="row down">
-                  <button class="button" onclick="pan('down')">
-                    <i class="fa fa-chevron-down fa-lg"></i>
-                  </button>
-                </div>
-              </div>
-            </p>
-        </p>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-12 navgation">
+            <div class="row up">
+              <button class="button" onclick="pan('up')">
+                <i class="fa fa-chevron-up fa-4x"></i>
+              </button>
+            </div>
+            <div class="row leftRight">
+              <button class="button" onclick="pan('left')">
+                <i class="fa fa-chevron-left fa-4x"></i>
+              </button>
+                <i class="fas fa-arrows-alt fa-3x arrows"></i>
+              <button class="button" onclick="pan('right')">
+                <i class="fa fa-chevron-right fa-4x"></i>
+              </button>
+            </div>
+            <div class="row down">
+              <button class="button" onclick="pan('down')">
+                <i class="fa fa-chevron-down fa-4x"></i>
+              </button>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -108,7 +159,7 @@
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: /*{lat: 59.3498092, lng: 18.0684358},*/ {lat: 59.331477, lng:18.068738},
-          zoom:  5,
+          zoom:  18,
           mapTypeId: 'hybrid',
           disableDefaultUI: true
         });
@@ -130,7 +181,7 @@
           icon: {
             url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
           },
-          position: {lat: 59.491477, lng: 18.068720}
+          position: {lat: 59.3498092, lng: 18.0684358}
         });
       }
 
