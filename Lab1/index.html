@@ -108,8 +108,8 @@
   </head>
   <body>
     <div class="row container-fluid">
-      <button id="btnAdd">TEST</button>
-      <button class="startup" onclick="this.style.display='none'">
+
+      <button class="startup" id="btnAdd" onclick="this.style.display='none'">
         <div class="welcome">maps.
         </div>
         <img id="crazyJesper" src="https://i.ibb.co/4MwK8jh/crazy-jesper.png">
@@ -158,11 +158,13 @@
 
     <script>
       let btnAdd = document.getElementById('btnAdd')
+      let deferredPrompt = null;
       window.addEventListener('beforeinstallprompt', (e) => {
         // Prevent Chrome 67 and earlier from automatically showing the prompt
         e.preventDefault();
         // Stash the event so it can be triggered later.
         deferredPrompt = e;
+
         // Update UI notify the user they can add to home screen
         btnAdd.style.display = 'block';
       });
