@@ -36,6 +36,7 @@
 
       .sidePanel {
         background-color: #ffcc99;
+        display: none;
       }
 
       .up {
@@ -119,8 +120,7 @@
   </head>
   <body>
     <div class="row container-fluid">
-
-      <button class="startup" id="btnAdd" onclick="this.style.display='none'">
+      <button class="startup" id="startBtn" onclick="startApp()">
         <div class="welcome">maps.
         </div>
         <img id="crazyJesper" src="./assets/crazy-jesper.png">
@@ -128,7 +128,7 @@
       <div class="col-md-8 12 map">
         <div id="map"></div>
       </div>
-      <div class="col-md-4 12 sidePanel">
+      <div class="col-md-4 12 sidePanel" id="sidePanel">
         <div class="row">
           <div class="col-4 col-md-12">
             <div class="row zoom">
@@ -179,6 +179,13 @@
     </div>
 
     <script>
+      function startApp() {
+        startBtn = document.getElementById('startBtn')
+        sidePanel = document.getElementById('sidePanel')
+        startBtn.style.display = "none"
+        sidePanel.style.display = "block"
+      }
+
       var map, infoWindow;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
